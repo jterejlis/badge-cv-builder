@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge CV Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- CONTROL PANEL (HIDDEN ON PRINT) -->
+    <aside class="control-panel no-print">
+     <header class="panel-header">
+        <h1>Badge CV Builder</h1>
+        <p>Build your resume from Credly badges &amp; JSON Resume</p>
+        <div class="privacy-badge">
+          <span>🔒 100% Client-Side (Zero Server Storage)</span>
+          <small>UI/CSS assisted by AI · Core logic handcrafted in Vanilla JS</small>
+        </div>
+      </header>
+
+      <div class="control-panel-content">
+        <!-- Data Import -->
+        <section class="panel-section">
+          <h2>1. Data Import</h2>
+          <div class="input-group">
+            <label for="credly-username">Credly Username</label>
+            <div class="inline-row">
+              <input type="text" id="credly-username" placeholder="e.g. jakub-terejlis">
+              <button id="btn-fetch-credly" type="button">Fetch</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="json-upload">Upload Resume (JSON)</label>
+            <input type="file" id="json-upload" accept=".json">
+          </div>
+        </section>
+
+        <!-- Basic Information -->
+        <section class="panel-section">
+          <h2>2. Basics</h2>
+          <input type="text" id="input-name" placeholder="Full Name">
+          <input type="text" id="input-label" placeholder="Professional Title (e.g. Systems Specialist)">
+          <input type="email" id="input-email" placeholder="Email">
+          <input type="text" id="input-phone" placeholder="Phone">
+          <input type="text" id="input-location" placeholder="Location (e.g. Wrocław, Poland)">
+          <input type="url" id="input-url" placeholder="Portfolio / Website URL">
+          <textarea id="input-summary" placeholder="Professional summary..."></textarea>
+        </section>
+
+        <!-- Work Experience (Manual Quick Entry) -->
+        <section class="panel-section">
+          <h2>3. Work Experience</h2>
+          <div id="work-items-container"></div>
+          <button id="btn-add-work" type="button">+ Add Position</button>
+        </section>
+
+        <!-- Badges & Credentials -->
+        <section class="panel-section">
+          <h2>4. Credentials & Badges</h2>
+          <div id="badges-selector" class="checklist">
+            <p class="hint">Fetch Credly badges to choose credentials.</p>
+          </div>
+        </section>
+
+        <!-- Skills Cloud -->
+        <section class="panel-section">
+          <h2>5. Skills</h2>
+          <div id="skills-selector" class="tag-cloud">
+            <p class="hint">Skills will appear after fetching badges or uploading JSON.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Action Buttons -->
+      <footer class="panel-actions">
+        <button id="btn-print" class="btn-primary" type="button">Print / PDF</button>
+        <button id="btn-export-json" class="btn-secondary" type="button">Export JSON</button>
+      </footer>
+    </aside>
+
+    <!-- LIVE A4 PREVIEW PANE -->
+    <main class="preview-pane">
+      <div id="resume-paper" class="resume-sheet">
+        <header class="resume-header">
+          <h1 id="view-name">Your Name</h1>
+          <p id="view-label" class="resume-title">Job Title</p>
+          <div id="view-contacts" class="resume-contacts"></div>
+        </header>
+
+        <section class="resume-section" id="section-summary">
+          <h2>Summary</h2>
+          <p id="view-summary"></p>
+        </section>
+
+        <section class="resume-section" id="section-experience">
+          <h2>Experience</h2>
+          <div id="view-experience"></div>
+        </section>
+
+        <section class="resume-section" id="section-certificates">
+          <h2>Certifications</h2>
+          <div id="view-certificates" class="badges-grid"></div>
+        </section>
+
+        <section class="resume-section" id="section-skills">
+          <h2>Skills</h2>
+          <div id="view-skills" class="skills-list"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

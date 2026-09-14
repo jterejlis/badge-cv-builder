@@ -1,0 +1,3 @@
+## AI Ethics & Transparency Statement
+* **Privacy by Design:** In line with data governance and privacy best practices, all processing (fetching, parsing, and rendering) occurs locally in memory within the client browser. No telemetry or profile storage is transmitted to external servers.
+* **Human-in-the-Loop & Clear Provenance:** Architectural decisions, API consumption models, and core JavaScript state logic are developed and governed by human engineering. Generative tools were leveraged strictly for rapid UI scaffolding and CSS baseline styling.
