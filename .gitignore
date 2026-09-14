@@ -1,0 +1,17 @@
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Prywatne dane CV (żeby nie wrzucić swoich danych z nawyku)
+*private*
+my-resume.json
+my-cv.json
+*.local.json
+
+# Ewentualne logi i środowisko testowe
+*.log
+.env
+EOF
