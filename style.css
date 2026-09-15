@@ -316,6 +316,30 @@ button:hover {
   border-radius: 3px;
 }
 
+.badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Pojedynczy kafelek */
+.badge-card {
+  display: flex;
+  flex-direction: row;     /* ikona obok tekstu */
+  align-items: center;
+  gap: 8px;
+  width: 180px;            /* szerokość całego wiersza */
+  text-align: left;
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.badge-card img {
+  width: 32px;             /* o połowę mniejsza ikona */
+  height: 32px;
+  flex-shrink: 0;          /* żeby tekst nie zgniatał obrazka */
+  object-fit: contain;
+}
 @media print {
   body, .app-layout {
     background: #fff !important;
