@@ -1,0 +1,69 @@
+{
+  "personalInfo": {
+    "name": "James Bond",
+    "label": "Commander / Senior Intelligence Operative (007)",
+    "email": "j.bond@mi6.gov.uk",
+    "phone": "+44 20 7946 0007",
+    "summary": "Specialist in counter-espionage, high-risk asset extraction, and field operations under deep cover. Proven track record of resolving critical international security incidents and neutralizing hostile threats with minimal supervision.",
+    "location": "London, United Kingdom",
+    "url": "https://sis.gov.uk"
+  },
+  "badges": [
+    {
+      "title": "00 Status Clearance",
+      "imageUrl": "https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de39754a65/cybersecurity-fundamentals.png",
+      "skills": ["Close Quarters Combat", "Evasive Driving", "Tactical Firearms", "Discretion"],
+      "selected": true
+    },
+    {
+      "title": "Advanced Field Logistics (Q-Branch Certified)",
+      "imageUrl": "https://images.credly.com/size/340x340/images/ae2f57f9-dae2-45e3-8aa3-524a1b0266fb/security-plus.png",
+      "skills": ["Asset Extraction", "Surveillance", "Counter-Terrorism"],
+      "selected": true
+    }
+  ],
+  "skills": [
+    { "name": "Tactical Firearms", "selected": true },
+    { "name": "Evasive Driving", "selected": true },
+    { "name": "Counter-Espionage", "selected": true },
+    { "name": "Asset Extraction", "selected": true },
+    { "name": "Deep Cover Operations", "selected": true },
+    { "name": "Crisis Negotiation", "selected": true }
+  ],
+  "work": [
+    {
+      "id": 1716281001000,
+      "company": "Secret Intelligence Service (MI6)",
+      "role": "Double-O Field Agent (007)",
+      "startDate": "2006",
+      "endDate": "Present",
+      "description": "Executed clandestine operations across European, Asian, and South American theaters. Coordinated field intelligence with local safehouses and Q-Branch technical staff to eliminate hostile private military syndicates."
+    },
+    {
+      "id": 1716281002000,
+      "company": "Royal Navy",
+      "role": "Commander (Special Boat Service)",
+      "startDate": "1998",
+      "endDate": "2006",
+      "description": "Led maritime reconnaissance, counter-insurgency boarding actions, and underwater demolition units. Maintained mission-critical systems and directed tactical divers during joint NATO drills."
+    }
+  ],
+  "education": [
+    {
+      "id": 1716282001000,
+      "institution": "University of Cambridge",
+      "degree": "BA in Oriental Languages",
+      "startDate": "1994",
+      "endDate": "1997",
+      "description": "Focus on high-context dialect translation and regional intelligence analysis. First Class Honours."
+    },
+    {
+      "id": 1716282002000,
+      "institution": "Fettes College",
+      "degree": "Secondary Education",
+      "startDate": "1990",
+      "endDate": "1994",
+      "description": "Captained athletics and boxing teams. Full colours in cross-country."
+    }
+  ]
+}

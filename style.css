@@ -370,3 +370,45 @@ button:hover {
     margin: 12mm 15mm;
   }
 }
+
+@media print {
+  @page {
+    /* Usuwa URL, datę i tytuł strony z krawędzi */
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body, .app-layout {
+    background: #fff !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .preview-pane {
+    padding: 0 !important;
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  .resume-sheet {
+    box-shadow: none !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    /* Tutaj ustawiasz margines dokumentu: góra/dół 15mm, lewo/prawo 18mm */
+    padding: 15mm 18mm !important;
+  }
+
+  /* Wymuszenie zachowania kolorów i teł */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
