@@ -1,7 +1,7 @@
 import { fetchJSONfromURL, sanitiseJSONData } from './js/credly.js';
 
 let appState = {
-  personalInfo: { name: '', label: '', email: '', phone: '', summary: '' },
+  personalInfo: { name: '', label: '', email: '', phone: '', summary: '', location: '', url: ''},
   badges: [],
   skills: [],
   work: [],
@@ -10,10 +10,10 @@ let appState = {
 
 const userFetchBtn = document.querySelector('#btn-fetch-credly');
 const usernameInput = document.querySelector('#credly-username');
+const personalInfoSection = document.querySelector('#personal-info-section');
 const badgeSection = document.querySelector("#badges-selector");
 const skillsSection = document.querySelector("#skills-selector");
 
-// 1. POBIERANIE I INICJALIZACJA DANYCH
 userFetchBtn.addEventListener('click', async () => {
   const username = usernameInput.value.trim();
   if (!username) return usernameInput.reportValidity();
@@ -32,7 +32,6 @@ userFetchBtn.addEventListener('click', async () => {
   renderPreviewSection("skills");
 });
 
-// 2. GENEROWANIE PANELU KONTROLNEGO (jeden zapis do DOM)
 function renderControls() {
   let badgesHtml = `
     <div class="badges-toolbar">
@@ -62,7 +61,7 @@ function renderControls() {
   skillsSection.innerHTML = skillsHtml;
 }
 
-// 3. LISTENERY NA STAŁE W DOM (Event Delegation)
+
 badgeSection.addEventListener('change', (e) => {
   if (e.target.id === 'toggle-all-badges') {
     appState.badges.forEach(b => b.selected = e.target.checked);
@@ -83,7 +82,13 @@ skillsSection.addEventListener('change', (e) => {
   renderPreviewSection("skills");
 });
 
-// 4. RENDERER PODGLĄDU A4
+personalInfoSection.addEventListener('input', (e) =>
+{
+ let newId = e.target.id.replace('input-', '');
+  appState.personalInfo[newId] = e.target.value;
+  renderPreviewSection("personal");
+})
+
 function renderPreviewSection(type) {
   if (type === "skills") {
     const container = document.querySelector("#view-skills");
@@ -106,4 +111,28 @@ function renderPreviewSection(type) {
     }
     container.innerHTML = html;
   }
-}
+
+  if (type === 'personal')
+  {
+    const nameContainer = document.querySelector('#view-name');
+    const labelContainer = document.querySelector('#view-label');
+    const contactsContainer = document.querySelector('#view-contacts');
+    const summaryContainer = document.querySelector('#view-summary');
+
+    nameContainer.textContent = appState.personalInfo['name']|| "Your Name";
+    labelContainer.textContent = appState.personalInfo['label']|| "Job Title";
+    summaryContainer.textContent = appState.personalInfo['summary'] || "";
+
+    const contactFields = [appState.personalInfo['location'], appState.personalInfo['email'], appState.personalInfo['phone'], appState.personalInfo['url']];
+    const filtertedContactFields = contactFields.filter(val => val && val.trim() !== "");
+    let contactHTML = ''
+    for(let value of filtertedContactFields)
+    {
+      contactHTML+=`<span class="contact-item">${value}</span>`
+    }
+    contactsContainer.innerHTML = contactHTML
+
+    const hasSummary = appState.personalInfo['summary'] && appState.personalInfo['summary'].trim() !== '';
+    document.querySelector('#section-summary').style.display = hasSummary ? '' : 'none';
+    }
+  }
