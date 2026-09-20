@@ -1,10 +1,9 @@
 export async function fetchJSONfromURL(username)
 {
-let targetUrl = `https://www.credly.com/users/${username}/badges.json`;
-let url = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`;;; //proxy for URLs
+const workerUrl = `https://cv-builder.jterejlis.workers.dev/?username=${encodeURIComponent(username)}`;
 try
 {
-    let response = await fetch('./badges.json');
+    let response = await fetch(workerUrl);
 
     if(!response.ok)
     {
